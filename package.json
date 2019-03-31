@@ -1,0 +1,45 @@
+{
+  "name": "chat-widget",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+	"serve": "vue-cli-service serve",
+	"build:app": "vue-cli-service build",
+	"build:chat": "vue-cli-service build --no-clean --target wc --name life-chat-widget src/components/chat-widget/index.vue",
+	"lint": "vue-cli-service lint",
+	"build": "npm run build:app && npm run build:chat",
+	"deploy": "firebase deploy"
+  },
+  "dependencies": {
+	"firebase": "^5.8.4",
+	"vue": "^2.6.6",
+	"vue-router": "^3.0.2"
+  },
+  "devDependencies": {
+	"@vue/cli-plugin-babel": "^3.4.0",
+	"@vue/cli-plugin-eslint": "^3.4.0",
+	"@vue/cli-service": "^3.4.0",
+	"@vue/eslint-config-airbnb": "^4.0.0",
+	"babel-eslint": "^10.0.1",
+	"eslint": "^5.8.0",
+	"eslint-plugin-vue": "^5.0.0",
+	"firebase-tools": "^6.4.0",
+	"lint-staged": "^8.1.0",
+	"node-sass": "^4.11.0",
+	"sass-loader": "^7.1.0",
+	"vue-template-compiler": "^2.5.21"
+  },
+  "gitHooks": {
+	"pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+	"*.js": [
+	  "vue-cli-service lint",
+	  "git add"
+	],
+	"*.vue": [
+	  "vue-cli-service lint",
+	  "git add"
+	]
+  }
+}
